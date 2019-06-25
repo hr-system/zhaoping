@@ -28,4 +28,4 @@ def student():
 
 @bp_welcome.route('/blank')
 def blank():
-    return render_template('welcome/layout_blank_page.html.html')
+    return render_template('welcome/layout_blank_page.html')
