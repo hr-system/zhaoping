@@ -26,21 +26,21 @@ License: You must have a valid license purchased only from themeforest(the above
 <meta content="" name="author"/>
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
-<link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
-<link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='assets/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link href="../../assets/admin/pages/css/news.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/admin/pages/css/news.css')}}" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL STYLES -->
 <!-- BEGIN THEME STYLES -->
-<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-<link href="../../assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
-<link id="style_color" href="../../assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css"/>
-<link href="../../assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/global/css/components.css')}}" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/global/css/plugins.css')}}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/admin/layout2/css/layout.css')}}" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="{{ url_for('static', filename='assets/admin/layout2/css/themes/grey.css')}}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/admin/layout2/css/custom.css')}}" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -63,7 +63,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
 			<a href="index.html">
-			<img src="../../assets/admin/layout2/img/logo-default.png" alt="logo" class="logo-default"/>
+			<img src="{{ url_for('static', filename='assets/admin/layout2/img/logo-default.png')}}" alt="logo" class="logo-default"/>
 			</a>
 			<div class="menu-toggler sidebar-toggler">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -286,7 +286,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<li>
 										<a href="inbox.html?a=view">
 										<span class="photo">
-										<img src="../../assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
+										<img src="{{ url_for('static', filename='assets/admin/layout3/img/avatar2.jpg')}}" class="img-circle" alt="">
 										</span>
 										<span class="subject">
 										<span class="from">
@@ -300,7 +300,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<li>
 										<a href="inbox.html?a=view">
 										<span class="photo">
-										<img src="../../assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
+										<img src="{{ url_for('static', filename='assets/admin/layout3/img/avatar3.jpg')}}" class="img-circle" alt="">
 										</span>
 										<span class="subject">
 										<span class="from">
@@ -328,7 +328,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<li>
 										<a href="inbox.html?a=view">
 										<span class="photo">
-										<img src="../../assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
+										<img src="{{ url_for('static', filename='assets/admin/layout3/img/avatar2.jpg')}}" class="img-circle" alt="">
 										</span>
 										<span class="subject">
 										<span class="from">
@@ -342,7 +342,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<li>
 										<a href="inbox.html?a=view">
 										<span class="photo">
-										<img src="../../assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
+										<img src="{{ url_for('static', filename='assets/admin/layout3/img/avatar3.jpg')}}" class="img-circle" alt="">
 										</span>
 										<span class="subject">
 										<span class="from">
@@ -459,7 +459,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 					<li class="dropdown dropdown-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<img alt="" class="img-circle" src="../../assets/admin/layout2/img/avatar3_small.jpg"/>
+						<img alt="" class="img-circle" src="{{ url_for('static', filename='assets/admin/layout2/img/avatar3_small.jpg')}}"/>
 						<span class="username username-hide-on-mobile">
 						Nick </span>
 						<i class="fa fa-angle-down"></i>
@@ -1360,7 +1360,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div id="myCarousel" class="carousel image-carousel slide">
 											<div class="carousel-inner">
 												<div class="active item">
-													<img src="../../assets/admin/pages/media/gallery/image5.jpg" class="img-responsive" alt="">
+													<img src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image5.jpg')}}" class="img-responsive" alt="">
 													<div class="carousel-caption">
 														<h4>
 														<a href="page_news_item.html">
@@ -1372,7 +1372,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													</div>
 												</div>
 												<div class="item">
-													<img src="../../assets/admin/pages/media/gallery/image2.jpg" class="img-responsive" alt="">
+													<img src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image2.jpg')}}" class="img-responsive" alt="">
 													<div class="carousel-caption">
 														<h4>
 														<a href="page_news_item.html">
@@ -1384,7 +1384,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													</div>
 												</div>
 												<div class="item">
-													<img src="../../assets/admin/pages/media/gallery/image1.jpg" class="img-responsive" alt="">
+													<img src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image1.jpg')}}" class="img-responsive" alt="">
 													<div class="carousel-caption">
 														<h4>
 														<a href="page_news_item.html">
@@ -1432,7 +1432,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>3 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image1.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image1.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1448,7 +1448,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>7 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image4.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image4.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1464,7 +1464,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>3 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image5.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1493,7 +1493,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>2 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image3.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1509,7 +1509,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>5 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image5.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1535,7 +1535,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>2 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image3.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1551,7 +1551,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>5 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image5.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1580,7 +1580,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>3 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image2.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image2.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1596,7 +1596,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>3 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image4.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image4.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1622,7 +1622,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>3 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image2.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image2.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1646,7 +1646,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>2 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image5.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1681,7 +1681,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<em>3 hours ago</em>
 											</div>
 											<p>
-												<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+												<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image3.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
 											</p>
 											<a href="page_news_item.html" class="news-block-btn">
 											Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1718,7 +1718,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<em>3 hours ago</em>
 													</div>
 													<p>
-														<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image2.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident iti..
+														<img class="news-block-img pull-right" src="{{ url_for('static', filename='assets/admin/pages/media/gallery/image2.jpg')}}" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident iti..
 													</p>
 													<a href="page_news_item.html" class="news-block-btn">
 													Read more <i class="m-icon-swapright m-icon-black"></i>
@@ -1905,24 +1905,24 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]>
-<script src="../../assets/global/plugins/respond.min.js"></script>
-<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<script src="{{ url_for('static', filename='assets/global/plugins/respond.min.js')}}"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/excanvas.min.js')}}"></script>
 <![endif]-->
-<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery-migrate.min.js')}}" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/jquery.cokie.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
-<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="../../assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
-<script src="../../assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/global/scripts/metronic.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/admin/layout2/scripts/layout.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='assets/admin/layout2/scripts/demo.js')}}" type="text/javascript"></script>
 <script>
 jQuery(document).ready(function() {    
    Metronic.init(); // init metronic core components
