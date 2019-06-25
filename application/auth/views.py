@@ -24,7 +24,7 @@ def login():
             return render_template('auth/login.html', form=form)
 
         login_user(user)
-        return redirect(url_for('bp_welcome.welcome'))
+        return redirect(url_for('bp_welcome.index'))
 
     return render_template('auth/login.html', form=form)
 

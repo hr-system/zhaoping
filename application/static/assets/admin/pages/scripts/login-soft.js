@@ -131,7 +131,7 @@ var Login = function () {
 
 
 		$("#select2_sample4").select2({
-		  	placeholder: '<i class="fa fa-map-marker"></i>&nbsp;Select a Country',
+		  	placeholder: '<i class="fa fa-check"></i>&nbsp;Select a Role',
             allowClear: true,
             formatResult: format,
             formatSelection: format,
