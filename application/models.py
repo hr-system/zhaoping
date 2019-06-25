@@ -11,7 +11,7 @@ class User(UserMixin, flask_db.Model):
     gender = CharField(null=False, choices=(('M', '男'), ('F', '女')))
     address = CharField(null=True, max_length=500)
     mail = CharField(null=True, max_length=100)
-    role = CharField(null=False, choices=(('ee', '面试者'), ('er', '面试官')))
+    role = CharField(null=False, choices=(('ee', '面试'), ('er', '面试官')))
 
     class Meta:
         database = flask_db.database
