@@ -7,7 +7,7 @@
 			<label class="control-label visible-ie8 visible-ie9">Ncik Name</label>
 			<div class="input-icon">
 				<i class="fa fa-font"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="Real Name" name="nickname"/>
 			</div>
 		</div>
 		<div class="form-group">
@@ -21,18 +21,27 @@
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Address</label>
 			<div class="input-icon">
-				<i class="fa fa-check"></i>
+				<i class="fa fa-map-marker"></i>
 				<input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">City/Town</label>
+			<label class="control-label visible-ie8 visible-ie9">gender</label>
 			<div class="input-icon">
-				<i class="fa fa-location-arrow"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city"/>
-			</div>
+				<input  type="radio"  name="gender" value="M"/>男&nbsp;&nbsp;&nbsp;&nbsp;
+                <input  type="radio"  name="gender" value="F"/>女
 		</div>
-		{% include "selectcountry.html" %}
+            <div class="form-group">
+                <div class="input-icon">
+
+			<label class="control-label visible-ie8 visible-ie9">Role</label>
+			<select name="role"  id="select2_sample4">
+				<option value=""></option>
+				<option value="ee">面试者</option>
+				<option value="er">面试官</option>
+            </select>
+                </div>
+		</div>
 		<p>
 			 Enter your account details below:
 		</p>
@@ -59,16 +68,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="form-group">
-			<label>
-			<input type="checkbox" name="tnc"/> I agree to the <a href="javascript:;">
-			Terms of Service </a>
-			and <a href="javascript:;">
-			Privacy Policy </a>
-			</label>
-			<div id="register_tnc_error">
-			</div>
-		</div>
 		<div class="form-actions">
 			<button id="register-back-btn" type="button" class="btn">
 			<i class="m-icon-swapleft"></i> Back </button>
@@ -76,4 +75,5 @@
 			Sign Up <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
+        </div>
 	</form>
