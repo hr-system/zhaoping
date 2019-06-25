@@ -24,3 +24,8 @@ def teacher():
 @role_required('student')
 def student():
     return render_template('welcome/student.html')
+
+
+@bp_welcome.route('/blank')
+def blank():
+    return render_template('welcome/layout_blank_page.html')
