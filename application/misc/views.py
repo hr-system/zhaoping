@@ -62,7 +62,7 @@ def generate_date3():
 def generate_date4():
     flask_db.database.create_tables([CVInfo], safe=True)
     data4 = [
-        {'name': '同方', 'address': '云南省昆明市', 'tel': '15087441352', 'gender': 'M', 'birthday': '2019-6-25'},
+        {'name': '同方', 'address': '云南省昆明市', 'tel': '15087441352', 'gender': 'F', 'birthday': '2019-6-25'},
         {'name': '同方', 'address': '云南省昆明市', 'tel': '15087441352', 'gender': 'M', 'birthday': '2019-6-25'},
         {'name': '同方', 'address': '云南省昆明市', 'tel': '15087441352', 'gender': 'M', 'birthday': '2019-6-25'}
     ]
