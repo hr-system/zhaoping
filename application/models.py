@@ -15,3 +15,48 @@ class User(UserMixin, flask_db.Model):
 
     class Meta:
         database = flask_db.database
+
+
+class CorpSum(flask_db.Model):
+    name = CharField()
+    type = CharField()
+    date = DateField()
+
+    class Meta:
+        database = flask_db.database
+
+
+class CorpInfo(flask_db.Model):
+    name = CharField()
+    biography = CharField()
+    address = CharField()
+    email = CharField()
+    tel = CharField()
+
+    class Meta:
+        database = flask_db.database
+
+
+class RecruitInfo(flask_db.Model):
+    name = CharField()
+    position = CharField()
+    type = CharField()
+    email = CharField()
+    tel = CharField()
+    date = DateField()
+
+    class Meta:
+        database = flask_db.database
+
+
+class CVInfo(flask_db.Model):
+    name = CharField()
+    gender = CharField()
+    email = CharField()
+    tel = CharField()
+    address = CharField()
+    birthday = DateField()
+
+    class Meta:
+        database = flask_db.database
+
