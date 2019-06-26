@@ -1,16 +1,4 @@
-<!--Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.4
-Version: 3.9.0
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
+
 <html lang="en">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
@@ -47,7 +35,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <body class="login">
 <!-- BEGIN LOGO -->
 <div class="logo">
-	<a href="index.html">
+	<a href="welcome/index.html">
 	<img src="{{ url_for('static', filename='assets/admin/layout/img/logo-big.png')}}" alt=""/>
 	</a>
 </div>
@@ -59,7 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="index.html" method="post">
+	<form class="login-form" action="{{url_for('bp_auth.login')}}" method="post">
 		<h3 class="form-title">Login to your account</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>

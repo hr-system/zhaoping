@@ -1,16 +1,19 @@
-from werkzeug.security import check_password_hash
+
 
 from flask import redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from ..models import User
 
 from .forms import LoginForm
+from .forms import UserRegister
 from . import bp_auth
 
 
 @bp_auth.route('/login', methods=['GET', 'POST'])
 def login():
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.get_or_none(User.username == form.username.data)
@@ -24,9 +27,26 @@ def login():
             return render_template('auth/login.html', form=form)
 
         login_user(user)
-        return redirect(url_for('bp_welcome.index'))
+        return redirect(url_for('bp_welcome.welcome'))
 
     return render_template('auth/login.html', form=form)
+
+
+@bp_auth.route('/login', methods=['GET', 'POST'])
+def register():
+    form = UserRegister()
+    if form.validate_on_submit():
+        User.create(
+            username=form.username.data,
+            password=generate_password_hash(form.password.data),
+            nickname=form.nickname.data,
+            gender=form.gender.data,
+            role=form.role.data,
+            mail=form.mail.data
+        )
+        flash('注册成功')
+        return redirect(url_for('auth/login'))
+    return render_template('auth/register.html', form=form)
 
 
 @bp_auth.route('/logout')
