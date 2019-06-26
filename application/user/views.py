@@ -61,3 +61,4 @@ def add_user():
         flash('添加成功')
         return redirect(url_for('bp_user.list_users'))
     return render_template('user/add_user.html', form=form)
+
