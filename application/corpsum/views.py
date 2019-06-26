@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
 from werkzeug.security import generate_password_hash
 
-from ..models import CorpSum
+from application.models import CorpSum
 
 from .forms import AddCorSum
 from .forms import EditCorSum
@@ -43,7 +43,7 @@ def edit_corpsums(id):
         corpsums.data = form.gender.data
         corpsums.save()
         flash('修改成功')
-        return redirect(url_for('bp_user.profile', id=corpsums.id))
+        return redirect(url_for('bp_corpsum.profile', id=corpsums.id))
     return render_template('corpsum/edit_corpsums.html', form=form, corpsums=corpsums)
 
 
