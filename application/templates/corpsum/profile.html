@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color: green">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+  <h1>{{ corpsums.name }}公司的信息</h1>
+  <p>公司名：{{ corpsums.name }}</p>
+  <p>类型：{{ corpsums.type }}</p>
+  <p>日期：{{ corpsums.data }}</p>
+  <p><a href="{{ url_for('bp_corpsum.list_corpsums') }}">返回</a></p>
+</body>
+</html>

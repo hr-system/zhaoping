@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公司信息查询</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+          {% for message in messages  %}
+            <li style="color: green">{{ message }}</li>
+          {% endfor %}
+      </ul>
+     {% endif %}
+{% endwith %}
+<p>
+  <a href="{{ url_for('bp_corpsum.add_corpsums') }}">添加用户</a>
+</p>
+  <table border="1">
+      <thead>
+      <tr>
+          <td>#</td>
+          <td>ID</td>
+          <td>姓名</td>
+          <td>类型</td>
+          <td>日期</td>
+          <td>详情</td>
+          <td>操作1</td>
+          <td>操作2</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for corpsum in corpsums %}
+      <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ corpsum.id }}</td>
+          <td>{{ corpsum.name }}</td>
+          <td>{{ corpsum.type }}</td>
+          <td>{{ corpsum.data }}</td>
+          <td><a href="{{url_for('bp_corpsum.profile', id=corpsum.id)}}">查看</a></td>
+          <td><a href="{{url_for('bp_corpsum.delete_corpsums', id=corpsum.id)}}">删除</a></td>
+          <td><a href="{{url_for('bp_corpsum.edit_corpsums', id=corpsum.id) }}">修改</a></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+{% if page > 1 %}
+<a href="{{ url_for('list_corpsums', page=page-1) }}">上一页</a>
+{% endif %}
+<span>第{{ page }}页/共计{{ page_count }}页</span>
+{% if page < page_count %}
+<a href="{{ url_for('list_corpsums', page=page + 1) }}">下一页</a>
+{% endif %}
+</body>
+</html>
