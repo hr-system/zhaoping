@@ -2,7 +2,9 @@ from flask import render_template, flash, redirect, url_for
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
 from werkzeug.security import generate_password_hash
 
+
 from ..models import CVInfo
+
 
 from .forms import AddCVInfo
 from .forms import EditCVInfo
@@ -23,6 +25,12 @@ def list_cvinfos():
 def profile2(id):
     cvinfos = get_object_or_404(CVInfo, (CVInfo.id == id))
     return render_template('cvinfo/profile2.html', cvinfos=cvinfos)
+
+
+@bp_cvinfo.route('/profile/<int:id>')
+def profile(id):
+    cvinfos = get_object_or_404(CVInfo, (CVInfo.id == id))
+    return render_template('cvinfo/profile.html', cvinfos=cvinfos)
 
 
 @bp_cvinfo.route('/delete_cvinfos/<int:id>')

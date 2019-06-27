@@ -2,7 +2,9 @@ from flask import render_template, flash, redirect, url_for
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
 from werkzeug.security import generate_password_hash
 
+
 from ..models import CorpSum
+
 
 from .forms import AddCorSum
 from .forms import EditCorSum
