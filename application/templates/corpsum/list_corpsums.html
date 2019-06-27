@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <title>公司信息查询</title>
 </head>
-<body>
+<body background="{{ url_for('static', filename='BG/scrapes.jpg')}}">
 {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul class=flashes>
@@ -25,15 +25,16 @@
 <p>
   <a href="{{ url_for('bp_corpsum.add_corpsums') }}">添加用户</a>
 </p>
-  <table border="1">
+  <table border="1" width="70%">
       <thead>
       <tr>
           <td>#</td>
           <td>ID</td>
-          <td>姓名</td>
+          <td>公司名</td>
           <td>类型</td>
           <td>日期</td>
-          <td>详情</td>
+          <td>公司详情</td>
+          <td>职位详情</td>
           <td>操作1</td>
           <td>操作2</td>
       </tr>
@@ -46,7 +47,8 @@
           <td>{{ corpsum.name }}</td>
           <td>{{ corpsum.type }}</td>
           <td>{{ corpsum.data }}</td>
-          <td><a href="{{url_for('bp_corpsum.profile', id=corpsum.id)}}">查看</a></td>
+          <td><a href="{{url_for('bp_corpsum.profile', id=corpsum.id)}}">查看公司信息</a></td>
+          <td><a href="{{url_for('bp_corpinfo.list_corpinfo1', name=corpsum.name)}}">查看职位需求</a></td>
           <td><a href="{{url_for('bp_corpsum.delete_corpsums', id=corpsum.id)}}">删除</a></td>
           <td><a href="{{url_for('bp_corpsum.edit_corpsums', id=corpsum.id) }}">修改</a></td>
       </tr>

@@ -23,11 +23,14 @@
   {% endif %}
 {% endwith %}
 
-  <h1>{{ corpsums.name }}公司的信息</h1>
-  <p>公司名：{{ corpsums.name }}</p>
-  <p>类型：{{ corpsums.type }}</p>
-  <p>日期：{{ corpsums.data }}</p>
-  <p><a href="{{ url_for('bp_corpsum.list_corpsums') }}">返回</a></p>
+  <h1>{{ query2.name }}的具体公司的信息</h1>
+   <p>面试官姓名：{{ query1.nickname }}</p>
+   <p>联系方式：{{ query2.tel }}</p>
+   <p>公司地址：{{ query2.address }}</p>
+   <p>公司简介：{{ query1.biography }}</p>
+   <p></p>
+   <p></p>
+  <p><a href="{{ url_for('bp_corpinfo.list_corpinfo1') }}">返回</a></p>
 </body>
 </html>
 {% endblock %}

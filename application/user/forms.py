@@ -22,4 +22,3 @@ class AddUser(FlaskForm):
         user = User.get_or_none(User.username == field.data)
         if user is not None:
             raise ValidationError('用户名已经被使用')
-

@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash
 
 from ..utilities import role_required
 from ..models import CorpSum
+from ..models import CorpInfo
 
 
 from .forms import AddCorpSum
@@ -69,4 +70,5 @@ def add_corpsums():
         flash('添加成功')
         return redirect(url_for('bp_corpsum.list_corpsums'))
     return render_template('corpsum/add_corpsums.html', form=form)
+
 

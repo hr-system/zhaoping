@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash
 
 
 from ..models import CorpInfo
+from ..models import User
 
 
 from .forms import AddCorpInfo
@@ -72,3 +73,17 @@ def add_corpinfos():
         return redirect(url_for('bp_corpinfo.list_corpinfos'))
     return render_template('corpinfo/add_corpinfos.html', form=form)
 
+
+@bp_corpinfo.route('/list_corpinfo/<string:name>')
+@login_required
+def list_corpinfo1(name):
+    query1 = User.select()
+    query2 = get_object_or_404(CorpInfo, (CorpInfo.name == name))
+    return render_template('corpinfo/list_corpall.html', query1=query1, query2=query2)
+
+
+# @bp_corpinfo.route('/profile2/<int:id>')
+# @login_required
+# def profile2(id):
+#     corpinfos = get_object_or_404(query1 ,query1.id == id)
+#     return render_template('corpinfo/profile.html', corpinfos=corpinfos)

@@ -5,6 +5,7 @@ from flask_login import login_required
 
 
 from ..models import RecruitInfo
+from ..models import CVInfo
 
 
 from .forms import AddRecruitInfo
@@ -71,4 +72,12 @@ def add_recruitinfos():
         flash('添加成功')
         return redirect(url_for('bp_recruitinfo.list_recruitinfos'))
     return render_template('recruitinfo/add_recruitinfos.html', form=form)
+
+
+@bp_recruitinfo.route('/list_recruitinfo/<string:name>')
+@login_required
+def list_recruitinfo1(name):
+    query1 = RecruitInfo.select()
+    query2 = get_object_or_404(CVInfo, (CVInfo.name == name))
+    return render_template('recruitinfo/list_reandcv.html', query1=query1, query2=query2)
 

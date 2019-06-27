@@ -25,7 +25,7 @@
 <p>
   <a href="{{ url_for('bp_cvinfo.add_cvinfos') }}">添加用户</a>
 </p>
-  <table border="1">
+  <table border="1" width="70%">
       <thead>
       <tr>
           <td>#</td>
@@ -37,6 +37,7 @@
           <td>地址</td>
           <td>出生日期</td>
           <td>详情</td>
+          <td>求职详情</td>
           <td>操作1</td>
           <td>操作2</td>
       </tr>
@@ -53,6 +54,7 @@
           <td>{{ cvinfo.address }}</td>
           <td>{{ cvinfo.birthday }}</td>
           <td><a href="{{url_for('bp_cvinfo.profile', id=cvinfo.id)}}">查看</a></td>
+          <td><a href="{{url_for('bp_recruitinfo.list_recruitinfo1', name=cvinfo.name)}}">查看求职信息</a></td>
           <td><a href="{{url_for('bp_cvinfo.delete_cvinfos', id=cvinfo.id)}}">删除</a></td>
           <td><a href="{{url_for('bp_cvinfo.edit_cvinfos', id=cvinfo.id) }}">修改</a></td>
       </tr>

@@ -1,0 +1,37 @@
+{% extends 'welcome/page_news.html' %}
+{% block headr %}
+<h3 class="page-title">
+关于我们 <small>的小故事</small>
+</h3>
+{% endblock %}
+{% block bio %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body background="{{ url_for('static', filename='BG/BlueSky.jpg')}}">
+
+<p align="center"><b><font size="5">公司简介</font></b></p>
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;
+伯乐公司，成立于2019年6月，专注于基层岗位招聘与用工服务，是中国领先高效的一站式招聘服务平台。面向广大基层岗位求职者，伯乐提供安全、丰富的全职与兼职工作信息，并通过产品创新与服务保障，为用户打造了更加良好的求职体验，帮助求职者快速找到合适岗位。“为每一个梦想找到自己的归宿”
+不只是一句口号，更是我们所秉承的服务愿景，截止今日，斗米平台用户量已达5位，位于行业末尾。针对企业，我们提供的在线招聘服务，覆盖多种类型基层岗位，帮助客户快捷方便的高效招聘。同时，针对大中型企业，我们还提供一站式灵活用工服务，包括RPO招聘服务、岗位外包服务等，通过全网最大的基层岗位人才库与灵活用工管理SaaS系统建设，可提供更有保障的招聘效果与更加透明、高效的管理服务，帮助企业从根本上解决招人难、用工隐性成本高等问题。截止目前，我们业务已覆盖餐饮酒店、零售快消、互联网、物流快递、教育培训、展览展会等诸多服务行业。</p>
+<p align="justify">
+<img border="0" src="{{ url_for('static',filename='BG/wish&duty.jpg')}}" width="1203" height="408"></p>
+<p align="justify"><b>我们的价值观</b></p>
+<p align="justify">
+<img border="0" src="{{ url_for('static',filename='BG/gratitude.png')}}" width="732" height="461"></p>
+<p align="justify">
+<img border="0" src="{{ url_for('static',filename='BG/integerity.png')}}" width="737" height="461"></p>
+<p align="justify">　</p>
+<p align="justify">
+<img border="0" src="{{ url_for('static',filename='BG/innovation.png')}}" width="737" height="457"></p>
+<p align="justify">
+<img border="0" src="../../static/BG/responsibility.png" width="736" height="461"></p>
+<p align="justify">　</p>
+
+</body>
+</html>
+{% endblock %}

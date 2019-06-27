@@ -1,0 +1,60 @@
+{% extends 'welcome/page_news.html' %}
+{% block headr %}
+<h3 class="page-title">
+简历 <small>简历信息展示</small>
+</h3>
+{% endblock %}
+{% block bio %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简历信息查询</title>
+</head>
+<body background="{{ url_for('static', filename='BG/scrapes.jpg')}}">
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+          {% for message in messages  %}
+            <li style="color: green">{{ message }}</li>
+          {% endfor %}
+      </ul>
+     {% endif %}
+{% endwith %}
+  <table border="1" width="70%">
+      <thead>
+      <tr>
+          <td>#</td>
+          <td>ID</td>
+          <td>求职者</td>
+          <td>性别</td>
+          <td>地址</td>
+          <td>电话</td>
+          <td>求职意向</td>
+          <td>专业类型</td>
+{#          <td>查看</td>#}
+      </tr>
+      </thead>
+      <tbody name="t3">
+
+      {% for query1 in query1 %}
+      <tr>
+      {% if query1.name == query2.name %}
+          <td>{{ loop.index }}</td>
+          <td>{{ query1.id }}</td>
+          <td>{{ query2.name }}</td>
+          <td>{{ query2.gender }}</td>
+          <td>{{ query2.address }}</td>
+          <td>{{ query1.tel }}</td>
+          <td>{{ query1.position }}</td>
+          <td>{{ query1.type }}</td>
+{#          <td><a href="{{url_for('bp_corpinfo.profile2', id=query1.id)}}">查看</a></td>#}
+      </tr>
+          {% endif %}
+      {% endfor %}
+      </tbody>
+  </table>
+<button><a href="{{url_for('bp_cvinfo.list_cvinfos')}}">返回</a></button>
+</body>
+</html>
+{% endblock %}

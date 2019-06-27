@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-<body>
+<body background="{{ url_for('static', filename='BG/snowflake.jpg')}}">
   <form action="{{ url_for('bp_welcome.edit_user', username=user.username) }}" method="post">
     <p>姓名：<input name="nickname" type="text" value="{{ user.nickname }}"></p>
     <p>

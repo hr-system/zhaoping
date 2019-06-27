@@ -3,7 +3,7 @@ from flask_login import login_required
 from playhouse.flask_utils import get_object_or_404
 from flask import Flask, render_template, request, redirect, url_for, flash, abort
 
-from ..utilities import role_required
+
 from ..models import User
 
 from . import bp_welcome
@@ -16,15 +16,16 @@ def welcome():
     return render_template('welcome/page_news.html')
 
 
+@bp_welcome.route('/we')
+@login_required
+def we():
+    return render_template('page/WebBio.html')
+
+
 @bp_welcome.route('/page_calendar')
 @login_required
 def page_calendar():
     return render_template('welcome/page_calendar.html')
-
-
-@bp_welcome.route('/blank')
-def blank():
-    return render_template('welcome/layout_blank_page.html')
 
 
 @bp_welcome.route('/profile/<string:username>')
