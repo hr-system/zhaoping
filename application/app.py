@@ -53,3 +53,9 @@ def configure_blueprints(app):
     from .cvinfo import bp_cvinfo
     app.register_blueprint(bp_cvinfo, url_prefix='/cvinfo')
 
+    from .corpinfo import bp_corpinfo
+    app.register_blueprint(bp_corpinfo, url_prefix='/corpinfo')
+
+    from .recruitinfo import bp_recruitinfo
+    app.register_blueprint(bp_recruitinfo, url_prefix='/recruitinfo')
+

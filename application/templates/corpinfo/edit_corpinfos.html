@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <form action="{{ url_for('bp_corpinfo.edit_corpinfos', id=corpinfos.id) }}" method="post">
+      <p>公司名名：<input name="name" type="text" value="{{ corpinfos.name }}"></p>
+      <p>公司简介：<input name="biography" type="text" value="{{ corpinfos.biography }}"></p>
+      <p>公司地址：<input name="address" type="text" value="{{ corpinfos.address }}"></p>
+      <p>公司邮箱：<input name="email" type="text" value="{{ corpinfos.email }}"></p>
+      <p>联系电话：<input name="tel" type="text" value="{{ corpinfos.tel }}"></p>
+{#      <p>性 别:#}
+{#       <select name="gender" >#}
+{#         <option value="M" {% if corpinfo.gender == 'M'%}selected{% endif %}>男</option>#}
+{#         <option value="F" {% if corpinfo.gender == 'F' %}selected{% endif %}>女</option>#}
+{#       </select>#}
+{#      {% if form.gender.errors %}#}
+{#       <span style="color:red;">#}
+{#       {{ form.gender.errors | join('<br>') }}#}
+{#       </span>#}
+{#       {% endif %}#}
+{#      </p>#}
+      <p ><input type="submit"></p>
+  </form>
+</body>
+</html>

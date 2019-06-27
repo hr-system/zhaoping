@@ -1,10 +1,4 @@
 {% extends 'welcome/page_news.html' %}
-{% block headr %}
-<h3 class="page-title">
-公司 <small>公司信息展示</small>
-</h3>
-{% endblock %}
-
 {% block bio %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +6,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body background="{{ url_for('static', filename='BG/scrapes.jpg')}}">
-<form action="{{ url_for('bp_corpsum.add_corpsums') }}" method="post">
+<body>
+<form action="{{ url_for('bp_recruitinfo.add_recruitinfos') }}" method="post">
     <p>公司名称:<input name="name" type="text">
     {% if form.name.errors %}
          <span style="color:red;">
@@ -21,15 +15,17 @@
          </span>
         {% endif %}
     </p>
-    <p>类 型:<input name="type" type="text"></p>
-    <p>日 期：<input name="data" type="text">
+    <p>需求职位:<input name="position" type="text"></p>
+    <p>类型:<input name="type" type="text"></p>
+    <p>邮箱:<input name="email" type="text"></p>
+    <p>联系电话:<input name="tel" type="text"></p>
+    <p>日期：<input name="data" type="text">
 {#        {% if form.password.errors %}#}
 {#         <span style="color:red;">#}
 {#        {{ form.password.errors | join('<br>') }}#}
 {#         </span>#}
 {#        {% endif %}#}
     </p>
-    <img border="0" src="{{ url_for('static', filename='BG/dandelion.png')}}" width="535" height="331" align="right">
 {#	<p>性 别：<input type="radio" value="M" name="gender">男&nbsp;&nbsp;#}
 {#	<input type="radio" name="gender" value="F">女</p>#}
 {#	<p>角 色：<select size="1" name="role">#}

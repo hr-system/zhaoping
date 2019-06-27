@@ -22,32 +22,20 @@ def page_calendar():
     return render_template('welcome/page_calendar.html')
 
 
-@bp_welcome.route('/teacher')
-@login_required
-@role_required('teacher')
-def teacher():
-    return render_template('welcome/teacher.html')
-
-
-@bp_welcome.route('/student')
-@login_required
-@role_required('student')
-def student():
-    return render_template('welcome/student.html')
-
-
 @bp_welcome.route('/blank')
 def blank():
     return render_template('welcome/layout_blank_page.html')
 
 
 @bp_welcome.route('/profile/<string:username>')
+@login_required
 def profile(username):
     user = get_object_or_404(User, (User.username == username))
     return render_template('welcome/profile.html', user=user)
 
 
 @bp_welcome.route('/edit_user/<string:username>', methods=['GET', 'POST'])
+@login_required
 def edit_user(username):
     user = get_object_or_404(User, (User.username == username))
     form = EditPerson()

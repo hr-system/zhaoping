@@ -1,13 +1,37 @@
 {% extends 'welcome/page_news.html' %}
+{% block headr %}
+<h3 class="page-title">
+简历 <small>简历信息展示</small>
+</h3>
+{% endblock %}
+
 {% block bio %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
-
+  <form action="{{ url_for('bp_cvinfo.edit_cvinfos', id=cvinfo.id) }}" method="post">
+      <p>姓名：<input name="name" type="text" value="{{ cvinfo.name }}"></p>
+      <p>性 别:
+       <select name="gender" >
+         <option value="M" {% if cvinfo.gender == 'M'%}selected{% endif %}>男</option>
+         <option value="F" {% if cvinfo.gender == 'F' %}selected{% endif %}>女</option>
+       </select>
+      {% if form.gender.errors %}
+       <span style="color:red;">
+       {{ form.gender.errors | join('<br>') }}
+       </span>
+       {% endif %}
+      </p>
+      <p>邮箱：<input email="email" type="text" value="{{ cvinfo.email }}"></p>
+      <p>电话：<input tel="tel" type="text" value="{{ cvinfo.tel }}"></p>
+      <p>地址：<input address="address" type="text" value="{{ cvinfo.address }}"></p>
+      <p>出生日期：<input birthday="birthday" type="text" value="{{ cvinfo.birthday }}"></p>
+      <p ><input type="submit"></p>
+  </form>
 </body>
 </html>
 {% endblock %}

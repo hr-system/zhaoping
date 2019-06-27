@@ -1,13 +1,36 @@
 {% extends 'welcome/page_news.html' %}
+{% block headr %}
+<h3 class="page-title">
+简历 <small>简历信息展示</small>
+</h3>
+{% endblock %}
+
 {% block bio %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color: green">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 
+  <h1>{{ cvinfos.name }}的个人信息</h1>
+  <p>姓名：{{ cvinfos.name }}</p>
+  <p>性别：{{ cvinfos.gender }}</p>
+  <p>邮箱：{{ cvinfos.email }}</p>
+  <p>电话：{{ cvinfos.tel }}</p>
+  <p>地址：{{ cvinfos.address }}</p>
+  <p>出生日期：{{ cvinfos.birthday }}</p>
+  <p><a href="{{ url_for('bp_cvinfo.list_cvinfos') }}">返回</a></p>
 </body>
 </html>
 {% endblock %}

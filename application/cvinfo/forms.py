@@ -15,14 +15,14 @@ class EditCVInfo(FlaskForm):
 
 class AddCVInfo(FlaskForm):
     name = StringField('姓名', validators=[DataRequired()])
-    gender = StringField('性别', validators=[DataRequired()])
+    gender = SelectField('性别', validators=[DataRequired()], choices=(('M', '男'), ('F', '女')))
     email = StringField('邮箱', validators=[DataRequired()])
     tel = StringField('电话', validators=[DataRequired()])
     address = StringField('地址', validators=[DataRequired()])
     birthday = StringField('出生日期', validators=[DataRequired()])
 
     def validate_name(form, field):
-        name = CVInfo.get_or_none(CVInfo.name == field.data)
-        if name is not None:
+        cvinfos = CVInfo.get_or_none(CVInfo.name == field.data)
+        if cvinfos is not None:
             raise ValidationError('用户名已经被使用')
 

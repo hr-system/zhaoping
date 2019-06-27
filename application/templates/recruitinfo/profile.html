@@ -1,0 +1,30 @@
+{% extends 'welcome/page_news.html' %}
+{% block bio %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color: green">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+  <h1>{{ recruitinfos.name }}公司的信息</h1>
+  <p>公司名：{{ recruitinfos.name }}</p>
+  <p>需求职位：{{ recruitinfos.position }}</p>
+  <p>类型：{{ recruitinfos.type }}</p>
+  <p>邮箱：{{ recruitinfos.email }}</p>
+  <p>联系方式：{{ recruitinfos.tel }}</p>
+  <p>日期：{{ recruitinfos.data }}</p>
+  <p><a href="{{ url_for('bp_recruitinfo.list_recruitinfos') }}">返回</a></p>
+</body>
+</html>
+{% endblock %}

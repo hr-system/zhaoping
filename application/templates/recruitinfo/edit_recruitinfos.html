@@ -1,10 +1,4 @@
 {% extends 'welcome/page_news.html' %}
-{% block headr %}
-<h3 class="page-title">
-公司 <small>公司信息展示</small>
-</h3>
-{% endblock %}
-
 {% block bio %}
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -12,11 +6,14 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-<body background="{{ url_for('static', filename='BG/scrapes.jpg')}}">
-  <form action="{{ url_for('bp_corpsum.edit_corpsums', id=corpsum.id) }}" method="post">
-      <p>公司名：<input name="name" type="text" value="{{ corpsum.name }}"></p>
-      <p>类  型：<input name="type" type="text" value="{{ corpsum.type }}"></p>
-      <p>日  期：<input name="data" type="text" value="{{ corpsum.data }}"></p>
+<body>
+  <form action="{{ url_for('bp_recruitinfo.edit_recruitinfos', id=recruitinfo.id) }}" method="post">
+      <p>公司名：<input name="name" type="text" value="{{ recruitinfo.name }}"></p>
+      <p>需求职位：<input name="position" type="text" value="{{ recruitinfo.position }}"></p>
+      <p>类型：<input name="type" type="text" value="{{ recruitinfo.type }}"></p>
+      <p>邮箱：<input name="email" type="text" value="{{ recruitinfo.email }}"></p>
+      <p>联系电话：<input name="tel" type="text" value="{{ recruitinfo.tel }}"></p>
+      <p>日期：<input name="data" type="text" value="{{ recruitinfo.data }}"></p>
 {#      <p>性 别:#}
 {#       <select name="gender" >#}
 {#         <option value="M" {% if user.gender == 'M'%}selected{% endif %}>男</option>#}
