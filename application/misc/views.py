@@ -69,3 +69,4 @@ def generate_date4():
     CVInfo.insert_many(data4).execute()
     return '初始化数据成功4'
 
+
