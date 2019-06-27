@@ -21,12 +21,6 @@ def list_cvinfos():
     return render_template('cvinfo/list_cvinfos.html', cvinfos=cvinfos, page=page, page_count=page_count)
 
 
-@bp_cvinfo.route('/profile2/<int:id>')
-def profile2(id):
-    cvinfos = get_object_or_404(CVInfo, (CVInfo.id == id))
-    return render_template('cvinfo/profile2.html', cvinfos=cvinfos)
-
-
 @bp_cvinfo.route('/profile/<int:id>')
 def profile(id):
     cvinfos = get_object_or_404(CVInfo, (CVInfo.id == id))

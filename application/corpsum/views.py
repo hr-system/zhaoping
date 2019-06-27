@@ -6,8 +6,8 @@ from werkzeug.security import generate_password_hash
 from ..models import CorpSum
 
 
-from .forms import AddCorSum
-from .forms import EditCorSum
+from .forms import AddCorpSum
+from .forms import EditCorpSum
 from . import bp_corpsum
 
 
@@ -38,7 +38,7 @@ def delete_corpsums(id):
 @bp_corpsum.route('/edit_corpsums/<int:id>', methods=['GET', 'POST'])
 def edit_corpsums(id):
     corpsums = get_object_or_404(CorpSum, (CorpSum.id == id))
-    form = EditCorSum()
+    form = EditCorpSum()
     if form.validate_on_submit():
         corpsums.name = form.name.data
         corpsums.type = form.type.data
@@ -51,7 +51,7 @@ def edit_corpsums(id):
 
 @bp_corpsum.route('/add_corpsums', methods=['GET', 'POST'])
 def add_corpsums():
-    form = AddCorSum()
+    form = AddCorpSum()
     if form.validate_on_submit():
         CorpSum.create(
             name=form.name.data,

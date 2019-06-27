@@ -4,10 +4,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>个人信息查询</title>
 </head>
 <body>
-
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+          {% for message in messages  %}
+            <li style="color: green">{{ message }}</li>
+          {% endfor %}
+      </ul>
+     {% endif %}
+{% endwith %}
+<p>
+  <a href="{{ url_for('bp_cvinfo.add_cvinfos') }}">添加用户</a>
+</p>
+  <table border="1">
+      <thead>
+      <tr>
+          <td>#</td>
+          <td>ID</td>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>邮件</td>
+          <td>电话</td>
+          <td>地址</td>
+          <td>出生日期</td>
+          <td>详情</td>
+          <td>操作1</td>
+          <td>操作2</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for cvinfo in cvinfos %}
+      <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ cvinfo.id }}</td>
+          <td>{{ cvinfo.name }}</td>
+          <td>{{ cvinfo.gender }}</td>
+          <td>{{ cvinfo.email }}</td>
+          <td>{{ cvinfo.tel }}</td>
+          <td>{{ cvinfo.address }}</td>
+          <td>{{ cvinfo.birthday }}</td>
+          <td><a href="{{url_for('bp_cvinfo.profile', id=cvinfo.id)}}">查看</a></td>
+          <td><a href="{{url_for('bp_cvinfo.delete_cvinfos', id=cvinfo.id)}}">删除</a></td>
+          <td><a href="{{url_for('bp_cvinfo.edit_cvinfos', id=cvinfo.id) }}">修改</a></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+{% if page > 1 %}
+<a href="{{ url_for('list_cvinfos', page=page-1) }}">上一页</a>
+{% endif %}
+<span>第{{ page }}页/共计{{ page_count }}页</span>
+{% if page < page_count %}
+<a href="{{ url_for('list_cvinfos', page=page + 1) }}">下一页</a>
+{% endif %}
 </body>
 </html>
 {% endblock %}

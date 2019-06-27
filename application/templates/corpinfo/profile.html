@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color: green">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+  <h1>{{ corpinfos.name }}的个人信息</h1>
+  <p>公司名：{{ corpinfos.name }}</p>
+  <p>公司简介：{{ corpinfos.biography }}</p>
+  <p>公司地址：{{ corpinfos.address }}</p>
+  <p>公司邮箱：{{ corpinfos.email }}</p>
+  <p>联系方式：{{ corpinfos.tel }}</p>
+  <p><a href="{{ url_for('bp_corpinfo.list_corpinfos') }}">返回</a></p>
+</body>
+</html>

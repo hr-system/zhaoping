@@ -7,7 +7,21 @@
     <title>Title</title>
 </head>
 <body>
-
+<form action="{{ url_for('bp_cvinfo.add_cvinfos') }}" method="post">
+    <p>姓名:<input name="name" type="text">
+    {% if form.name.errors %}
+         <span style="color:red;">
+        {{ form.name.errors | join('<br>') }}
+         </span>
+        {% endif %}
+    </p>
+	<p>性 别：<input gender="radio" value="M" name="gender">男&nbsp;&nbsp;
+    <p>邮箱:<input email="type" type="text"></p>
+    <p>电话：<input tel="type" type="text"></p>
+    <p>地址:<input address="type" type="text"></p>
+    <p>出生日期:<input birthday="type" type="text"></p>
+    <p><input type="submit"></p>
+</form>
 </body>
 </html>
 {% endblock %}

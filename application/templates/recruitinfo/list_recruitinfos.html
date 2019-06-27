@@ -1,0 +1,65 @@
+{% extends 'welcome/page_news.html' %}
+{% block bio %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公司信息查询</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+          {% for message in messages  %}
+            <li style="color: green">{{ message }}</li>
+          {% endfor %}
+      </ul>
+     {% endif %}
+{% endwith %}
+<p>
+  <a href="{{ url_for('bp_recruitinfo.add_recruitinfos') }}">添加用户</a>
+</p>
+  <table border="1">
+      <thead>
+      <tr>
+          <td>#</td>
+          <td>ID</td>
+          <td>公司名</td>
+          <td>需求职位</td>
+          <td>类型</td>
+          <td>邮箱</td>
+          <td>联系电话</td>
+          <td>日期</td>
+          <td>详情</td>
+          <td>操作1</td>
+          <td>操作2</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for recruitinfo in recruitinfos %}
+      <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ recruitinfo.id }}</td>
+          <td>{{ recruitinfo.name }}</td>
+          <td>{{ recruitinfo.position }}</td>
+          <td>{{ recruitinfo.type }}</td>
+          <td>{{ recruitinfo.email }}</td>
+          <td>{{ recruitinfo.tel }}</td>
+          <td>{{ recruitinfo.data }}</td>
+          <td><a href="{{url_for('bp_recruitinfo.profile', id=recruitinfo.id)}}">查看</a></td>
+          <td><a href="{{url_for('bp_recruitinfo.delete_recruitinfos', id=recruitinfo.id)}}">删除</a></td>
+          <td><a href="{{url_for('bp_recruitinfo.edit_recruitinfos', id=recruitinfo.id) }}">修改</a></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+{% if page > 1 %}
+<a href="{{ url_for('list_recruitinfos', page=page-1) }}">上一页</a>
+{% endif %}
+<span>第{{ page }}页/共计{{ page_count }}页</span>
+{% if page < page_count %}
+<a href="{{ url_for('list_recruitinfos', page=page + 1) }}">下一页</a>
+{% endif %}
+</body>
+</html>
+{% endblock %}
