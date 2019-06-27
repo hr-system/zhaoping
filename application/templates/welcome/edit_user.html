@@ -1,4 +1,9 @@
 {% extends 'welcome/page_news.html' %}
+{% block headr %}
+<h3 class="page-title">
+个人 <small>个人信息展示</small>
+</h3>
+{% endblock %}
 {% block bio %}
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -14,7 +19,7 @@
       <select name="gender" >
         <option value="M" {% if user.gender == 'M' %}selected{% endif %}>男</option>
         <option value="F" {% if user.gender == 'F' %}selected{% endif %}>女</option>
-        <option value="MF">男女</option>
+
       </select>
       {% if form.gender.errors %}
       <span style="color:red;">
@@ -25,6 +30,7 @@
     <p>地址：<input name="address" type="text" value="{{ user.address }}"></p>
     <p>Email：<input name="mail" type="text" value="{{ user.mail}}"></p>
     <p><input type="submit"></p>
+    <button><a href="{{ url_for('bp_welcome.profile',username=user.username) }}"></a>返回</button>
   </form>
 </body>
 </html>
