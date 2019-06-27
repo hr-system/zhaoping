@@ -46,3 +46,10 @@ def configure_blueprints(app):
 
     from .user import bp_user
     app.register_blueprint(bp_user, url_prefix='/user')
+
+    from .corpsum import bp_corpsum
+    app.register_blueprint(bp_corpsum, url_prefix='/corpsum')
+
+    from .cvinfo import bp_cvinfo
+    app.register_blueprint(bp_cvinfo, url_prefix='/cvinfo')
+

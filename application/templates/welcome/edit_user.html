@@ -1,0 +1,31 @@
+{% extends 'welcome/page_news.html' %}
+{% block bio %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <form action="{{ url_for('bp_welcome.edit_user', username=user.username) }}" method="post">
+    <p>姓名：<input name="nickname" type="text" value="{{ user.nickname }}"></p>
+    <p>
+      性别:
+      <select name="gender" >
+        <option value="M" {% if user.gender == 'M' %}selected{% endif %}>男</option>
+        <option value="F" {% if user.gender == 'F' %}selected{% endif %}>女</option>
+        <option value="MF">男女</option>
+      </select>
+      {% if form.gender.errors %}
+      <span style="color:red;">
+      {{ form.gender.errors | join('<br>') }}
+      </span>
+      {% endif %}
+    </p>
+    <p>地址：<input name="address" type="text" value="{{ user.address }}"></p>
+    <p>Email：<input name="mail" type="text" value="{{ user.mail}}"></p>
+    <p><input type="submit"></p>
+  </form>
+</body>
+</html>
+{% endblock %}
