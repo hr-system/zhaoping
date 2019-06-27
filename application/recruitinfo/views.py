@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
 from werkzeug.security import generate_password_hash
+from flask_login import login_required
 
 
 from ..models import RecruitInfo
@@ -12,6 +13,7 @@ from . import bp_recruitinfo
 
 
 @bp_recruitinfo.route('/list_recruitinfos')
+@login_required
 def list_recruitinfos():
     query = RecruitInfo.select().order_by(RecruitInfo.name)
     pg = PaginatedQuery(query, paginate_by=10, page_var='page', check_bounds=True)
@@ -22,12 +24,14 @@ def list_recruitinfos():
 
 
 @bp_recruitinfo.route('/profile/<int:id>')
+@login_required
 def profile(id):
     recruitinfos = get_object_or_404(RecruitInfo, (RecruitInfo.id == id))
     return render_template('recruitinfo/profile.html', recruitinfos=recruitinfos)
 
 
 @bp_recruitinfo.route('/delete_recruitinfos/<int:id>')
+@login_required
 def delete_recruitinfos(id):
     recruitinfos = RecruitInfo.select().where(RecruitInfo.id == id).get()
     recruitinfos.delete_instance()
@@ -36,6 +40,7 @@ def delete_recruitinfos(id):
 
 
 @bp_recruitinfo.route('/edit_recruitinfos/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_recruitinfos(id):
     recruitinfos = get_object_or_404(RecruitInfo, (RecruitInfo.id == id))
     form = EditRecruitInfo()
@@ -52,6 +57,7 @@ def edit_recruitinfos(id):
 
 
 @bp_recruitinfo.route('/add_recruitinfos', methods=['GET', 'POST'])
+@login_required
 def add_recruitinfos():
     form = AddRecruitInfo()
     if form.validate_on_submit():

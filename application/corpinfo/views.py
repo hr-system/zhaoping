@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
+from flask_login import login_required
 from werkzeug.security import generate_password_hash
 
 
@@ -12,6 +13,7 @@ from . import bp_corpinfo
 
 
 @bp_corpinfo.route('/list_corpinfos')
+@login_required
 def list_corpinfos():
     query = CorpInfo.select().order_by(CorpInfo.name)
     pg = PaginatedQuery(query, paginate_by=10, page_var='page', check_bounds=True)
@@ -22,12 +24,14 @@ def list_corpinfos():
 
 
 @bp_corpinfo.route('/profile/<int:id>')
+@login_required
 def profile(id):
     corpinfos = get_object_or_404(CorpInfo, (CorpInfo.id == id))
     return render_template('corpinfo/profile.html', corpinfos=corpinfos)
 
 
 @bp_corpinfo.route('/delete_corpinfos/<int:id>')
+@login_required
 def delete_corpinfos(id):
     corpinfos = CorpInfo.select().where(CorpInfo.id == id).get()
     corpinfos.delete_instance()
@@ -36,6 +40,7 @@ def delete_corpinfos(id):
 
 
 @bp_corpinfo.route('/edit_corpinfos/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_corpinfos(id):
     corpinfos = get_object_or_404(CorpInfo, (CorpInfo.id == id))
     form = EditCorpInfo()
@@ -52,6 +57,7 @@ def edit_corpinfos(id):
 
 
 @bp_corpinfo.route('/add_corpinfos', methods=['GET', 'POST'])
+@login_required
 def add_corpinfos():
     form = AddCorpInfo()
     if form.validate_on_submit():

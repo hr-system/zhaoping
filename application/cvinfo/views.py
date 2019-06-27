@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
 from werkzeug.security import generate_password_hash
+from flask_login import login_required
 
 
 from ..models import CVInfo
@@ -12,6 +13,7 @@ from . import bp_cvinfo
 
 
 @bp_cvinfo.route('/list_cvinfos')
+@login_required
 def list_cvinfos():
     query = CVInfo.select().order_by(CVInfo.name)
     pg = PaginatedQuery(query, paginate_by=10, page_var='page', check_bounds=True)
@@ -22,12 +24,14 @@ def list_cvinfos():
 
 
 @bp_cvinfo.route('/profile/<int:id>')
+@login_required
 def profile(id):
     cvinfos = get_object_or_404(CVInfo, (CVInfo.id == id))
     return render_template('cvinfo/profile.html', cvinfos=cvinfos)
 
 
 @bp_cvinfo.route('/delete_cvinfos/<int:id>')
+@login_required
 def delete_cvinfos(id):
     cvinfos = CVInfo.select().where(CVInfo.id == id).get()
     cvinfos.delete_instance()
@@ -36,6 +40,7 @@ def delete_cvinfos(id):
 
 
 @bp_cvinfo.route('/edit_cvinfos/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_cvinfos(id):
     cvinfos = get_object_or_404(CVInfo, (CVInfo.id == id))
     form = EditCVInfo()
@@ -53,6 +58,7 @@ def edit_cvinfos(id):
 
 
 @bp_cvinfo.route('/add_cvinfos', methods=['GET', 'POST'])
+@login_required
 def add_cvinfos():
     form = AddCVInfo()
     if form.validate_on_submit():
