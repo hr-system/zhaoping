@@ -1,4 +1,10 @@
 {% extends 'welcome/page_news.html' %}
+{% block headr %}
+<h3 class="page-title">
+公司 <small>公司信息展示</small>
+</h3>
+{% endblock %}
+
 {% block bio %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +21,8 @@
          </span>
         {% endif %}
     </p>
-    <p>类 型:<input type="type" type="text"></p>
-    <p>日 期：<input data="data" type="text">
+    <p>类 型:<input name="type" type="text"></p>
+    <p>日 期：<input name="data" type="text">
 {#        {% if form.password.errors %}#}
 {#         <span style="color:red;">#}
 {#        {{ form.password.errors | join('<br>') }}#}

@@ -45,7 +45,7 @@ def register():
             address=re.address.data
         )
         flash('注册成功')
-        return redirect(url_for('auth/login'))
+        return redirect(url_for('bp_auth.login'))
     return render_template('auth/register1.html', form=re)
 
 

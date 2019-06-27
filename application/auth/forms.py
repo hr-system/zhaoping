@@ -37,7 +37,7 @@ class AddPerson(FlaskForm):
 
 
 class EditPerson(FlaskForm):
-    name = StringField('姓名', validators=[DataRequired()])
+    nickname = StringField('姓名', validators=[DataRequired()])
     gender = SelectField(
                 '性别',
                 validators=[DataRequired()],
