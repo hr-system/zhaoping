@@ -16,7 +16,7 @@
   <form action="{{ url_for('bp_corpsum.edit_corpsums', id=corpsums.id) }}" method="post">
       <p>公司名：<input name="name" type="text" value="{{ corpsums.name }}"></p>
       <p>类  型：<input name="type" type="text" value="{{ corpsums.type }}"></p>
-      <p>日  期：<input name="data" type="text" value="{{ corpsums.data }}"></p>
+      <p>日  期：<input name="data" type="data" value="{{ corpsums.data }}"></p>
 
 {#      <p>性 别:#}
 {#       <select name="gender" >#}

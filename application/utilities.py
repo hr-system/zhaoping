@@ -13,3 +13,14 @@ def role_required(role):
             return f(*args, **kwargs)
         return decorated_function
     return decorator
+
+
+def name_required(name):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if current_user.nickname != name:
+                abort(403)
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator

@@ -1,10 +1,11 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, abort
 from playhouse.flask_utils import PaginatedQuery, get_object_or_404
 from werkzeug.security import generate_password_hash
-from flask_login import login_required
-
+from flask_login import login_required, current_user
+from ..utilities import name_required
 
 from ..models import CVInfo
+from ..models import User
 
 
 from .forms import AddCVInfo
@@ -30,13 +31,18 @@ def profile(id):
     return render_template('cvinfo/profile.html', cvinfos=cvinfos)
 
 
-@bp_cvinfo.route('/delete_cvinfos/<int:id>')
+@bp_cvinfo.route('/delete_cvinfos/<string:name>')
 @login_required
-def delete_cvinfos(id):
-    cvinfos = CVInfo.select().where(CVInfo.id == id).get()
-    cvinfos.delete_instance()
-    flash('删除成功')
-    return redirect(url_for('bp_cvinfo.list_cvinfos'))
+# @name_required('<string:name>')
+def delete_cvinfos(name):
+    me = current_user
+    cvinfos = CVInfo.select().where(CVInfo.name == name).get()
+    if me.nickname != cvinfos.name:
+        abort(403)
+    else:
+        cvinfos.delete_instance()
+        flash('删除成功')
+        return redirect(url_for('bp_cvinfo.list_cvinfos'))
 
 
 @bp_cvinfo.route('/edit_cvinfos/<int:id>', methods=['GET', 'POST'])

@@ -5,7 +5,6 @@ from werkzeug.security import generate_password_hash
 
 from ..utilities import role_required
 from ..models import CorpSum
-from ..models import CorpInfo
 
 
 from .forms import AddCorpSum
@@ -16,7 +15,7 @@ from . import bp_corpsum
 @bp_corpsum.route('/list_corpsums')
 @login_required
 def list_corpsums():
-    query = CorpSum.select().order_by(CorpSum.name)
+    query = CorpSum.select().order_by(CorpSum.id)
     pg = PaginatedQuery(query, paginate_by=10, page_var='page', check_bounds=True)
     page = pg.get_page()
     page_count = pg.get_page_count()
@@ -59,13 +58,14 @@ def edit_corpsums(id):
 
 @bp_corpsum.route('/add_corpsums', methods=['GET', 'POST'])
 @login_required
+@role_required('er')
 def add_corpsums():
     form = AddCorpSum()
     if form.validate_on_submit():
         CorpSum.create(
             name=form.name.data,
             type=form.type.data,
-            data=form.data.data
+            idata=form.data.data
         )
         flash('添加成功')
         return redirect(url_for('bp_corpsum.list_corpsums'))

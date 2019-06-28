@@ -13,12 +13,12 @@
   <title>Title</title>
 </head>
 <body>
-  <form action="{{ url_for('bp_cvinfo.edit_cvinfos', id=cvinfo.id) }}" method="post">
-      <p>姓名：<input name="name" type="text" value="{{ cvinfo.name }}"></p>
+  <form action="{{ url_for('bp_cvinfo.edit_cvinfos', id=cvinfos.id) }}" method="post">
+      <p>姓名：<input name="name" type="text" value="{{ cvinfos.name }}"></p>
       <p>性 别:
        <select name="gender" >
-         <option value="M" {% if cvinfo.gender == 'M'%}selected{% endif %}>男</option>
-         <option value="F" {% if cvinfo.gender == 'F' %}selected{% endif %}>女</option>
+         <option value="M" {% if cvinfos.gender == 'M'%}selected{% endif %}>男</option>
+         <option value="F" {% if cvinfos.gender == 'F' %}selected{% endif %}>女</option>
        </select>
       {% if form.gender.errors %}
        <span style="color:red;">
@@ -26,10 +26,10 @@
        </span>
        {% endif %}
       </p>
-      <p>邮箱：<input email="email" type="text" value="{{ cvinfo.email }}"></p>
-      <p>电话：<input tel="tel" type="text" value="{{ cvinfo.tel }}"></p>
-      <p>地址：<input address="address" type="text" value="{{ cvinfo.address }}"></p>
-      <p>出生日期：<input birthday="birthday" type="text" value="{{ cvinfo.birthday }}"></p>
+      <p>邮箱：<input name="email" type="text" value="{{ cvinfos.email }}"></p>
+      <p>电话：<input name="tel" type="text" value="{{ cvinfos.tel }}"></p>
+      <p>地址：<input name="address" type="text" value="{{ cvinfos.address }}"></p>
+      <p>出生日期：<input name="birthday" type="text" value="{{ cvinfos.birthday }}"></p>
       <p ><input type="submit"></p>
   </form>
 </body>

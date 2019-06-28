@@ -127,8 +127,8 @@
 						{% if current_user.is_authenticated %}
                          你好：{{ current_user.nickname }}！
                         <br>
-                        角色：{% if  current_user.role==ee%}面试者
-                            {% else %}面试官
+                        角色：{% if  current_user.role=='ee'%}面试者
+                            {% elif current_user.role=='er' %}面试官
                             {% endif %}
                         {% endif %}
                         </span>

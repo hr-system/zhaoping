@@ -21,12 +21,14 @@
          </span>
         {% endif %}
     </p>
-	<p>性 别：<input gender="radio" value="M" name="gender">男&nbsp;&nbsp;
-    <p>邮箱:<input email="type" type="text"></p>
-    <p>电话：<input tel="type" type="text"></p>
-    <p>地址:<input address="type" type="text"></p>
-    <p>出生日期:<input birthday="type" type="text"></p>
-    <p><input type="submit"></p>
+	<p>性 别：<input type="radio" value="M" name="gender"/>男&nbsp;&nbsp;
+            <input type="radio" value="F" name="gender"/>女
+    <p>邮箱:<input name="email" type="text"></p>
+    <p>电话：<input name="tel" type="text"></p>
+    <p>地址:<input name="address" type="text"></p>
+    <p>出生日期:<input name="birthday" type="date"></p>
+    <input type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button><a href="{{ url_for ('bp_cvinfo.list_cvinfos')}}"></a>返回</button>
 </form>
 </body>
 </html>
